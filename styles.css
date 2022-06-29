@@ -1,0 +1,46 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgb(37, 37, 37);
+  background-color: #fff;
+  user-select: none;
+  padding-block: 1em;
+}
+
+h1 {
+  text-align: center;
+}
+
+.grid__options {
+    display: flex;
+    justify-content: center;
+    padding-block: 1em;
+    gap: 10px;
+}
+
+#grid {
+  border: 1px solid black;
+  margin-inline: auto;
+  width: fit-content;
+}
+
+.tile {
+  border: 1px solid black;
+}
+
+.tile:hover {
+    background-color: hsl(0, 0%, 90%);
+}
+
+.tile.active {
+    background-color: black;
+}
