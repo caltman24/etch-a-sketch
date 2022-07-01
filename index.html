@@ -9,11 +9,21 @@
     <script src="index.js" defer></script>
   </head>
   <body>
-    <h1>Etch-a-Sketch</h1>
     <div class="grid__options">
       Grid Size:
-      <input type="number" id="grid-size" value="16" min="8" max="20" />
+      <input type="number" id="grid-size" value="16" min="6" max="100" />
     </div>
-    <div id="grid"></div>
+    <div class="grid__wrapper">
+      <h1>Etch-a-Sketch</h1>
+      <div id="grid">
+      </div>
+      <div class="dials">
+        <div class="circle">
+        </div>
+        <button onclick="shake()">RESET</button>
+        <div class="circle">
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -16,31 +16,89 @@ body {
   padding-block: 1em;
 }
 
-h1 {
-  text-align: center;
+.grid__options {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+  gap: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.grid__options {
-    display: flex;
-    justify-content: center;
-    padding-block: 1em;
-    gap: 10px;
+input {
+  font-size: 1.5rem;
+  border-color: red;
+}
+
+.grid__wrapper {
+  padding: 1em 1.5em;
+  background-color: rgb(255, 0, 0);
+  margin-inline: auto;
+  border-radius: 20px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  align-self: center;
+  color: gold;
+  font-style: italic;
+  letter-spacing: 5px;
 }
 
 #grid {
-  border: 1px solid black;
   margin-inline: auto;
-  width: fit-content;
+  width: 45em;
+  height: 45em;
+}
+
+.dials {
+  height: 50px;
+  margin-block: 1.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dials button {
+  font-size: 1.5rem;
+  padding: 0.25em 0.5em;
+}
+
+.dials button:hover {
+  cursor: pointer;
+}
+
+.circle {
+  height: 75px;
+  width: 75px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-block;
+  border: 5px solid hsl(0, 0%, 75%);
 }
 
 .tile {
-  border: 1px solid black;
-}
-
-.tile:hover {
-    background-color: hsl(0, 0%, 90%);
+  display: block;
+  background-color: white;
 }
 
 .tile.active {
-    background-color: black;
+  background-color: black;
+}
+
+.shake {
+  animation: shake 150ms 3;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes shake {
+  0% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  50% { transform: rotate(0eg); }
+  75% { transform: rotate(-1deg); }
+  100% { transform: rotate(0deg); }
 }

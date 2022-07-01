@@ -1,24 +1,23 @@
 const getGridSize = () => document.getElementById("grid-size").value;
-const tileSize = 45;
 
+// create a tile element with the fixed tile size
 const createTile = () => {
   const tile = document.createElement("div");
   tile.classList.add("tile");
-  tile.style.width = `${tileSize}px`;
-  tile.style.height = `${tileSize}px`;
-  tile.style.border = "1px solid black";
   return tile;
 };
 
+// set the grid style and return the grid element
 const setGrid = () => {
   const grid = document.getElementById("grid");
   const gridSize = getGridSize(grid);
   grid.style.display = "grid";
-  grid.style.gridTemplateColumns = `repeat(${gridSize}, ${tileSize}px)`;
-  grid.style.gridTemplateRows = `repeat(${gridSize}, ${tileSize}px)`;
+  grid.style.gridTemplateColumns = `repeat(${gridSize}, auto)`;
+  grid.style.gridTemplateRows = `repeat(${gridSize}, auto)`;
   return grid;
 };
 
+// create and append tiles to the grid
 const createGrid = () => {
   const grid = setGrid();
   const gridSize = getGridSize(grid);
@@ -30,7 +29,8 @@ const createGrid = () => {
     }
   }
 };
-// create a function that returns a random hsl color
+
+// return a random hsl color
 const getRandomHsl = () => {
   const hue = Math.floor(Math.random() * 360);
   const saturation = Math.floor(Math.random() * 100);
@@ -38,8 +38,28 @@ const getRandomHsl = () => {
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
+// set the tile color
 const setTileColor = (tile, color) => {
   tile.style.backgroundColor = color;
+};
+
+// add shake animation
+const applyShakeAnimation = (node) => {
+  const removeDelay = 1000;
+  node.classList.add("shake");
+  setTimeout(() => {
+    node.classList.remove("shake");
+  }, removeDelay);
+};
+
+// call shake animation and reset grid
+const shake = () => {
+  const gridWrapper = document.querySelector(".grid__wrapper");
+  const clearDelay = 300;
+  applyShakeAnimation(gridWrapper);
+  setTimeout(() => {
+    __main__();
+  }, clearDelay);
 };
 
 function __main__() {
