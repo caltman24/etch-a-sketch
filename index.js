@@ -40,9 +40,15 @@ const getRandomHsl = () => {
 
 let mouseDown = false;
 // on mouse up(on the body) set the mouseDown to true
-document.body.onmousedown = () => (mouseDown = true);
+document.body.onmousedown = () => {
+  mouseDown = true;
+  return;
+};
 // on mouse down(on the body) set the mouseDown to false
-document.body.onmouseup = () => (mouseDown = false);
+document.body.onmouseup = () => {
+  mouseDown = false;
+  return;
+};
 
 // set the tile color
 const setTileColor = (e, color) => {
