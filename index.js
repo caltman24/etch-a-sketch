@@ -38,9 +38,16 @@ const getRandomHsl = () => {
   return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 };
 
+let mouseDown = false;
+// on mouse up(on the body) set the mouseDown to true
+document.body.onmousedown = () => (mouseDown = true);
+// on mouse down(on the body) set the mouseDown to false
+document.body.onmouseup = () => (mouseDown = false);
+
 // set the tile color
-const setTileColor = (tile, color) => {
-  tile.style.backgroundColor = color;
+const setTileColor = (e, color) => {
+  if (e.type === "mouseover" && !mouseDown) return;
+  e.target.style.backgroundColor = color;
 };
 
 // add shake animation
@@ -69,10 +76,13 @@ function __main__() {
     tile.addEventListener(
       "mouseover",
       (e) => {
-        setTileColor(e.target, getRandomHsl());
+        setTileColor(e, getRandomHsl());
       },
       { once: true }
     );
+    tile.addEventListener("mousedown", (e) => {
+      setTileColor(e, getRandomHsl());
+    });
   });
 }
 const gridOption = document.getElementById("grid-size");
